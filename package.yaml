@@ -31,3 +31,5 @@ tests:
     - space-war
     - hspec
     - QuickCheck
+    - containers
+    - random
