@@ -2,6 +2,7 @@ import Test.Hspec
 import Test.QuickCheck
 import Lib (projectName)
 
+import qualified Game.GenerateSpec
 import qualified Game.WorldSpec
 
 main :: IO ()
@@ -13,3 +14,4 @@ main = hspec $ do
     it "addition is commutative" $
       property $ \x y -> (x + y) == (y + (x :: Int))
   describe "Game.World" Game.WorldSpec.spec
+  describe "Game.Generate" Game.GenerateSpec.spec
