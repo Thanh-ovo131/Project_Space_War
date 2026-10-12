@@ -13,8 +13,10 @@ build-type:     Simple
 
 library
   exposed-modules:
+      Game.Action
       Game.Config
       Game.Generate
+      Game.Turn
       Game.Types
       Game.World
       Lib

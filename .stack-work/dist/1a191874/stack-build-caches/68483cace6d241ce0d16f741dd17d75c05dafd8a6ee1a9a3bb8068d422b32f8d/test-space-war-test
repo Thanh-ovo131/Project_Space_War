@@ -2,12 +2,10 @@
 : hash: 7038bb968ecc358729edd5d1e72a638409aaf5ea6ab13ce6ec7f253daa3b6529
 D:\Dev\space-war\.stack-work\dist\1a191874\build\space-war-test\autogen\Paths_space_war.hs:
   hash: 5ece0c763fef10870a87eb41adb1443a8d027ae8806d5964a79a9d35643a3db0
-D:\Dev\space-war\.stack-work\dist\1a191874\build\space-war-test\autogen\cabal_macros.h:
-  hash: 11399de4629f1042de8579a07f6218d410dd5a5c32a81e6fb756ade1cef1de34
 D:\Dev\space-war\package.yaml:
   hash: 341af2dc5db348f8b2aa3464b9ddb0a4813462a2e91cf9de578bd8e09d8da76b
 D:\Dev\space-war\space-war.cabal:
-  hash: 6408bb47f1a3728806cf351ed8090f008cd90d59843190aa6b01119aa391a7cb
+  hash: 30bd26d2c155ea38ae0aace148a1756122da532fddf13eb18401c1de08ffffc0
 D:\Dev\space-war\test\Game\GenerateSpec.hs:
   hash: d241699d94bfa552e10b4dc2e8b3a900e6a29d89c00d1e4df2c73b5f44fb3fc8
 D:\Dev\space-war\test\Game\WorldSpec.hs:
