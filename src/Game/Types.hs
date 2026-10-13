@@ -23,6 +23,12 @@ module Game.Types
     , GameResult (..)
     , GamePhase (..)
     , GameState (..)
+      -- * Hanh dong
+    , Action (..)
+    , GameError (..)
+    , Notice (..)
+    , ActionResult (..)
+    , ActionReport (..)
     ) where
 
 import qualified Data.Map.Strict as Map
@@ -120,4 +126,58 @@ data GameState = GameState
     , gsRound     :: Int          -- ^ vong hien tai (1 vong = luot P1 roi luot P2)
     , gsPhase     :: GamePhase
     , gsRng       :: StdGen       -- ^ bo sinh so ngau nhien
+    } deriving (Show, Eq)
+
+
+    -- | Cac hanh dong nguoi choi co the lam trong luot cua minh.
+data Action
+    = Move Direction
+    | Observe
+    | ScanArea
+    | ScanNearest
+    | ScanOpponent
+    | Mine ResourceType
+    | Deposit
+    | Recharge ResourceType Int   -- ^ loai tai nguyen va so luong dung de nap
+    | EndTurn
+    deriving (Show, Eq)
+
+-- | Ly do mot action bi tu choi (khi bi tu choi thi khong mat gi).
+data GameError
+    = GameNotInProgress       -- ^ tran chua bat dau hoac da ket thuc
+    | NotYourTurn
+    | NotEnoughAP
+    | NotEnoughBattery
+    | OutOfBounds             -- ^ di ra ngoai map
+    | NotOnPlanet             -- ^ Mine khi khong dung tren hanh tinh
+    | PlanetHasNoSuchResource -- ^ hanh tinh khong con loai tai nguyen do
+    | CargoFull
+    | CargoEmpty              -- ^ Deposit khi cargo rong
+    | NotAtEarth              -- ^ Recharge khi khong dung o Earth
+    | OutOfDepositRange       -- ^ Deposit khi qua xa Earth
+    | BatteryFull             -- ^ Recharge khi battery da day
+    | NotEnoughResources      -- ^ kho Earth khong du tai nguyen de nap
+    | InvalidAmount           -- ^ so luong khong hop le (<= 0)
+    deriving (Show, Eq)
+
+-- | Thong bao gui cho doi thu khi ban lam mot action.
+data Notice = YouWereScanned
+    deriving (Show, Eq)
+
+-- | Ket qua rieng cua tung action danh cho nguoi hanh dong.
+data ActionResult
+    = Moved Pos
+    | PlanetsFound [KnownPlanet]
+    | NearestPlanet (Maybe (Compass, Int))   -- ^ huong va khoang cach, hoac khong con hanh tinh
+    | OpponentDirection Compass
+    | Mined ResourceType Int
+    | Deposited Resources
+    | Recharged Int                          -- ^ so battery thuc su nhan duoc
+    | TurnEnded
+    deriving (Show, Eq)
+
+-- | Bao cao cua mot action thanh cong.
+data ActionReport = ActionReport
+    { reportResult :: ActionResult
+    , reportNotice :: Maybe Notice   -- ^ thong bao cho doi thu, neu co
     } deriving (Show, Eq)

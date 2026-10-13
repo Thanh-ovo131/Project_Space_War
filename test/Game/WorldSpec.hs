@@ -7,6 +7,7 @@ import Game.Config
 import Game.Types
 import Game.World
 
+
 -- | Sinh Pos ngau nhien nho (de test khong tran so).
 genPos :: Gen Pos
 genPos = Pos <$> choose (-50, 150) <*> choose (-50, 150)

@@ -16,6 +16,7 @@ library
       Game.Action
       Game.Config
       Game.Generate
+      Game.State
       Game.Turn
       Game.Types
       Game.World
@@ -50,6 +51,8 @@ test-suite space-war-test
   main-is: Spec.hs
   other-modules:
       Game.GenerateSpec
+      Game.StateSpec
+      Game.TestUtil
       Game.WorldSpec
       Paths_space_war
   hs-source-dirs:
