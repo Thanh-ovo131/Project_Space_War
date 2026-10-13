@@ -4,6 +4,7 @@ import Lib (projectName)
 
 import qualified Game.GenerateSpec
 import qualified Game.WorldSpec
+import qualified Game.StateSpec
 
 main :: IO ()
 main = hspec $ do
@@ -15,3 +16,4 @@ main = hspec $ do
       property $ \x y -> (x + y) == (y + (x :: Int))
   describe "Game.World" Game.WorldSpec.spec
   describe "Game.Generate" Game.GenerateSpec.spec
+  describe "Game.State" Game.StateSpec.spec
